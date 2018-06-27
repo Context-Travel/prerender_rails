@@ -7,10 +7,14 @@ module Rack
       # googlebot, yahoo, and bingbot are not in this list because
       # we support _escaped_fragment_ and want to ensure people aren't
       # penalized for cloaking.
+      #
+      # google & bingbot are now trying to access the js on a page so the above
+      # statement no longer holds. We want to return the prerendered page
+      # directly.
       @crawler_user_agents = [
-        # 'googlebot',
-        # 'yahoo',
-        # 'bingbot',
+        'googlebot',
+        'yahoo',
+        'bingbot',
         'baiduspider',
         'facebookexternalhit',
         'twitterbot',
